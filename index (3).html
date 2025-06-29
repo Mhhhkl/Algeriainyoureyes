@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALGERIA IN YOUR EYES - Immersive Tourism Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+              --primary: #007C91;       /* Mediterranean Blue */
+  --secondary: #E1B382;     /* Desert Sand */
+  --dark: #2E3C38;          /* Forest Charcoal */
+  --light: #FAF5EF;         /* Clay White */
+  --highlight: #BA6C3F;     /* Terracotta */
+  --text: #4C5B57;          /* Olive Gray */
+}
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), 
+                        url('https://i.postimg.cc/HxZcfXXC/95c7218f92a503f4636f4bd68ad428b0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .map-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .plane-animation {
+            animation: fly 15s linear infinite;
+        }
+        
+        .pin-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fly {
+            0% { transform: translateX(-100px) translateY(50px); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(-50px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .vr-card:hover .vr-overlay {
+            opacity: 1;
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49.5%, white 50%), 
+                        linear-gradient(to top right, transparent 49.5%, white 50%);
+            background-size: 100% 50%;
+            background-repeat: no-repeat;
+            background-position: bottom, top;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-[var(--dark)] text-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="h-8 w-auto" src="https://i.postimg.cc/ZqkGkzbL/Picsart-25-06-29-11-41-03-482.png" alt="Logo">
+          </div>
+          <!-- Navigation Links -->
+          <div class="hidden md:ml-10 md:flex md:space-x-8">
+            <a href="#home" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">Home</a>
+            <a href="#experiences" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">Experiences</a>
+            <a href="#events" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">Events & Offers</a>
+            <a href="#partners" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">Our Partners</a>
+            <a href="#join" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">Join as Partner</a>
+            <a href="#about" class="text-[var(--light)] hover:text-[var(--secondary)] inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-[var(--secondary)] text-sm font-medium transition duration-300">About Us</a>
+          </div>
+        </div>
+
+        <!-- Language & Button -->
+        <div class="hidden md:ml-6 md:flex md:items-center">
+          <div class="relative language-selector">
+            <button class="flex items-center text-[var(--light)] hover:text-[var(--secondary)] transition duration-300">
+              <span class="mr-1 font-medium">EN</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="absolute right-0 mt-2 w-20 bg-white rounded-md shadow-lg py-1 z-50 language-dropdown hidden">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--light)] hover:text-[var(--primary)]">AR</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--light)] hover:text-[var(--primary)]">FR</a>
+            </div>
+          </div>
+          <button class="ml-4 bg-[var(--primary)] hover:bg-[var(--highlight)] text-white px-4 py-2 rounded-md text-sm font-semibold transition duration-300">
+            Explore Now
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="-mr-2 flex items-center md:hidden">
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Mobile Side Menu -->
+<div id="mobileMenu" class="fixed top-0 left-0 h-full w-[250px] bg-[var(--dark)] text-white z-50 transform -translate-x-full transition-transform duration-300 shadow-lg">
+  <div class="flex justify-between items-center px-4 py-4 border-b border-gray-600">
+    <h3 class="text-lg font-semibold">Menu</h3>
+    <button id="closeMenu" class="text-white text-2xl hover:text-[var(--secondary)] transition">
+      &times;
+    </button>
+  </div>
+  <ul class="flex flex-col p-4 space-y-4 text-base font-medium">
+    <li><a href="#home" class="hover:text-[var(--secondary)] transition">Home</a></li>
+    <li><a href="#experiences" class="hover:text-[var(--secondary)] transition">Experiences</a></li>
+    <li><a href="#events" class="hover:text-[var(--secondary)] transition">Events & Offers</a></li>
+    <li><a href="#partners" class="hover:text-[var(--secondary)] transition">Our Partners</a></li>
+    <li><a href="#join" class="hover:text-[var(--secondary)] transition">Join as Partner</a></li>
+    <li><a href="#about" class="hover:text-[var(--secondary)] transition">About Us</a></li>
+  </ul>
+</div>
+  </nav>
+    <rid-cols-2 lg:grid-cols-3 gap-8">
+         <!-- Hero Section -->
+<section id="home" class="hero-section pt-24 pb-20 md:pt-32 md:pb-32 relative overflow-hidden bg-[var(--light)]">
+  <!-- خلفيات Blur ناعمة -->
+  <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-yellow-300 rounded-full opacity-20 filter blur-xl"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-orange-300 rounded-full opacity-20 filter blur-xl"></div>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+      <!-- النصوص -->
+      <div class="mb-12 lg:mb-0">
+        <h1 class="title-font text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <span class="text-white">ALGERIA</span> IN YOUR EYES
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-8">
+          Algeria Awaits – Step Inside the Experience
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <button class="bg-[var(--highlight)] hover:bg-orange-700 text-white px-6 py-3 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105">
+            Explore Now
+          </button>
+          <button class="border-2 border-[var(--highlight)] text-[var(--highlight)] hover:bg-orange-50 px-6 py-3 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105">
+            Watch Video
+          </button>
+        </div>
+      </div>
+      <div class="relative flex items-center justify-center">
+        <img src="https://i.postimg.cc/Bb615CGV/Picsart-25-06-27-21-48-36-166.png" alt="Algeria Map Background"
+             class="w-[200px] md:w-[300px] lg:w-[300px] object-contain z-0 select-none opacity-70" />
+        <img src="https://i.postimg.cc/brjDzs7r/file-00000000442861f8ab268387efefdfcd.png" alt="Flying Plane"
+             class="absolute top-[50%] left-[50%] w-[200px] md:w-[230px] transform -translate-x-1/2 -translate-y-1/2 animate-plane" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CSS Animation -->
+<style>
+@keyframes planeFly {
+  0% { transform: translate(-50%, -50%) translateX(0); }
+  50% { transform: translate(-50%, -50%) translateX(15px); }
+  100% { transform: translate(-50%, -50%) translateX(0); }
+}
+.animate-plane {
+  animation: planeFly 4s ease-in-out infinite;
+}
+</style>
+<!-- Experiences Section -->
+<section id="experiences" class="py-20 bg-[var(--light)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="title-font text-3xl md:text-4xl font-bold text-gray-900 mb-4">Immersive Experiences</h2>
+      <p class="max-w-2xl mx-auto text-lg text-[var(--text)]">
+        Discover Algeria's breathtaking landscapes and rich culture through our VR and 360° experiences
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex justify-center flex-wrap gap-4 mb-10">
+      <button class="filter-tab px-5 py-2 border border-[var(--primary)] rounded-full text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition" data-filter="all">All</button>
+      <button class="filter-tab px-5 py-2 border border-[var(--primary)] rounded-full text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition" data-filter="nature">Nature</button>
+      <button class="filter-tab px-5 py-2 border border-[var(--primary)] rounded-full text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition" data-filter="culture">Culture</button>
+      <button class="filter-tab px-5 py-2 border border-[var(--primary)] rounded-full text-sm font-medium text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition" data-filter="history">History</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  
+<!-- VR Experience: Blida -->
+<div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 vr-card" data-category="nature">
+  <div class="relative h-64">
+    <img src="https://i.postimg.cc/cLPPsb7D/09a8f3caa6d6523b16300bef130a0aad.jpg" alt="Chréa Mountains in Snow" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+      <button class="bg-white bg-opacity-90 text-[var(--primary)] rounded-full w-16 h-16 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition duration-300">
+        <i class="fas fa-play text-2xl"></i>
+      </button>
+    </div>
+    <div class="absolute top-4 right-4 bg-[var(--primary)] text-white px-3 py-1 rounded-full text-xs font-bold">CINEMATIC TOUR</div>
+    <div class="absolute bottom-4 left-4 bg-white text-[var(--primary)] px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow">
+      <i class="fas fa-vr-cardboard"></i> VR
+    </div>
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-900 mb-2">Chréa Mountains – Blida</h3>
+    <p class="text-gray-600 mb-4">Discover the snowy landscapes of Chréa in winter, a popular destination near Algiers filled with natural beauty and serene trails.</p>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i> 12 min</span>
+      <button class="text-[var(--primary)] hover:text-[var(--highlight)] text-sm font-medium">View Details →</button>
+    </div>
+  </div>
+</div>
+
+
+
+      <!-- VR Experience 2 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 vr-card" data-category="culture">
+        <div class="relative h-64">
+          <img src="https://i.postimg.cc/W3YGvQgz/7ed5dc757ec6f69aeba4ff47c115faca.jpg" alt="Algiers Casbah" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+            <button onclick="openVideoModal('https://www.youtube.com/embed/lIYV_VjCOgU?autoplay=1')" class="bg-white bg-opacity-90 text-[var(--primary)] rounded-full w-16 h-16 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition duration-300">
+              <i class="fas fa-play text-2xl"></i>
+            </button>
+          </div>
+          <div class="absolute top-4 right-4 bg-[var(--primary)] text-white px-3 py-1 rounded-full text-xs font-bold">VR TOUR</div>
+          <div class="absolute bottom-4 left-4 bg-white text-[var(--primary)] px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow">
+            <i class="fas fa-vr-cardboard"></i> VR
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Algiers Casbah</h3>
+           <h3 class="text-xl font-bold text-gray-900 mb-2">Nomad Trails Agency</h3>
+           <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">4.5 (121 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">ander through the narrow streets of this historic citadel, a unique example of Islamic architecture.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i> 22 min</span>
+            <button class="text-[var(--primary)] hover:text-[var(--highlight)] text-sm font-medium">View Details →</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- VR Experience 3 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 vr-card" data-category="nature">
+        <div class="relative h-64">
+          <img src="https://i.postimg.cc/ZKtc5zXv/2135b7b9cb4be039d9762c10b4e395a3.jpg" alt="Sahara Desert" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+            <button onclick="openVideoModal('https://www.youtube.com/embed/RdFkC6Gtb5A?autoplay=1')" class="bg-white bg-opacity-90 text-[var(--primary)] rounded-full w-16 h-16 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition duration-300">
+              <i class="fas fa-play text-2xl"></i>
+            </button>
+          </div>
+          <div class="absolute top-4 right-4 bg-[var(--primary)] text-white px-3 py-1 rounded-full text-xs font-bold">360° TOUR</div>
+          <div class="absolute bottom-4 left-4 bg-white text-[var(--primary)] px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow">
+            <i class="fas fa-vr-cardboard"></i> VR
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Sahara Desert Adventure</h3>
+           <h3 class="text-xl font-bold text-gray-900 mb-2">Nomad Trails Agency</h3>
+           <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">4.5 (121 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Experience the magic of the world's largest hot desert with its endless dunes and starry nights.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i> 28 min</span>
+            <button class="text-[var(--primary)] hover:text-[var(--highlight)] text-sm font-medium">View Details →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<!-- Modal: Video + Comments -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-xl p-4 w-full max-w-6xl flex flex-col lg:flex-row gap-4 relative">
+    <button onclick="closeVideoModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl">×</button>
+
+    <!-- 🎥 Video -->
+    <div class="w-full lg:w-2/3">
+      <iframe id="videoIframe" class="w-full h-64 lg:h-96 rounded" src="" frameborder="0" allowfullscreen style="z-index: 10; position: relative;"></iframe>
+    </div>
+
+    <!-- 💬 Comments -->
+    <div class="w-full lg:w-1/3">
+      <h4 class="text-lg font-bold text-gray-800 mb-2">Comments</h4>
+      <ul id="comments" class="space-y-2 text-sm text-gray-700 max-h-60 overflow-y-auto border rounded p-2 mb-2"></ul>
+      <ul id="comments" class="space-y-4 text-sm text-gray-700 max-h-60 overflow-y-auto border rounded p-2 mb-2">
+
+  <!-- تعليق جزائري -->
+  <li class="flex gap-3 items-start">
+    <img src="https://i.pravatar.cc/40?img=11" alt="User" class="w-10 h-10 rounded-full">
+    <div>
+      <p class="font-semibold text-gray-800">عبد القادر</p>
+      <p class="mb-1">خدمت معاهم، وخدمتهم كانت في القمة، ربي يباركلهم!</p>
+      <div class="flex items-center gap-2">
+        <div class="text-yellow-500">★★★★★</div>
+        
+      </div>
+    </div>
+  </li>
+
+  <!-- تعليق فرنسي -->
+  <li class="flex gap-3 items-start">
+    <img src="https://i.pravatar.cc/40?img=32" alt="User" class="w-10 h-10 rounded-full">
+    <div>
+      <p class="font-semibold text-gray-800">Claire</p>
+      <p class="mb-1">C'était incroyable ! Le guide connaissait très bien la région.</p>
+      <div class="flex items-center gap-2">
+        <div class="text-yellow-500">★★★★☆</div>
+       
+    </div>
+  </li>
+
+  <!-- تعليق إنجليزي -->
+  <li class="flex gap-3 items-start">
+    <img src="https://i.pravatar.cc/40?img=5" alt="User" class="w-10 h-10 rounded-full">
+    <div>
+      <p class="font-semibold text-gray-800">John</p>
+      <p class="mb-1">Truly unforgettable! I’d love to come back again.</p>
+      <div class="flex items-center gap-2">
+        <div class="text-yellow-500">★★★★★</div>
+        
+      </div>
+    </div>
+  </li>
+
+</ul>
+
+      <textarea id="commentInput" class="w-full border p-2 rounded mb-2" placeholder="Write a comment..."></textarea>
+      <button onclick="submitComment()" class="bg-[var(--primary)] text-white px-4 py-2 rounded w-full">Submit</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Section -->
+<section id="experiences" class="py-20 bg-[var(--light)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <button onclick="openMapModal()" class="border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white px-8 py-3 rounded-md text-lg font-medium transition duration-300">
+        View map
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="mapModal" class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl shadow-xl p-6 max-w-5xl w-full relative">
+      <button onclick="closeMapModal()" class="absolute top-4 right-4 text-gray-600 hover:text-red-500 text-xl">×</button>
+      <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Explore Algeria</h3>
+
+      <!-- Map Image + Buttons -->
+      <div class="relative flex items-center justify-center">
+        <img src="https://i.postimg.cc/YSZwp6rw/Picsart-25-06-28-02-19-38-336.png" alt="Algeria Map"
+             class="w-[500px] md:w-[600px] lg:w-[600px] object-contain opacity-70" />
+        
+        <!-- Dots on map -->
+        
+      </div>
+
+      <!-- Content Display -->
+      <div id="regionContent" class="mt-8 text-center text-gray-700">
+        <p>Click a region on the map to view VR and 360° experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+   <!-- Events & Offers Section -->
+<section id="events" class="py-20 bg-[var(--light)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="title-font text-3xl md:text-4xl font-bold text-gray-900 mb-4">Events & Special Offers</h2>
+      <p class="max-w-2xl mx-auto text-lg text-gray-600">
+        Discover upcoming festivals, cultural events, and exclusive travel deals
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Cards go here -->
+    </div>
+  </div>
+</section>
+ <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                   <!-- Event 1: Sahara Festival -->
+      <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+        <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+          <img src="https://i.postimg.cc/cLRZb38k/Ca5-Rp-Ro-WAAAQse-V.jpg" alt="Sahara Festival" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-white flex flex-col justify-between flex-grow">
+          <div>
+            <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">CULTURAL</span>
+            <h3 class="text-xl font-bold mb-2">International Sahara Festival</h3>
+            <p class="text-sm mb-4">Join us for the 25th edition of this spectacular celebration of Saharan culture, featuring music, poetry, and traditional crafts under the desert stars.</p>
+          </div>
+          <div>
+            <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> Dec 15–20, 2025</div>
+            <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Tamanrasset, Algeria</div>
+            <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2: Algiers Book Fair -->
+      <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+        <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+          <img src="https://i.postimg.cc/9MyRf04D/IMG-20241110-WA0012.jpg" alt="Book Fair" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-white flex flex-col justify-between flex-grow">
+          <div>
+            <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">knowledge</span>
+            <h3 class="text-xl font-bold mb-2">Algiers International Book Fair</h3>
+            <p class="text-sm mb-4">Discover literature from Algeria and beyond. SILA hosts hundreds of publishers, authors, and book lovers in this cultural celebration.</p>
+          </div>
+          <div>
+            <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> Oct 29 – Nov 8, 2025</div>
+            <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Société Algérienne des Foires et Exportations - Foire d'Alger </div>
+            <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+     <!-- Event 3: Street Food Festival -->
+<div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+  <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+    <img src="https://i.postimg.cc/ZnMx80cJ/Screenshot-20250626-232837-Google.jpg" alt="Street Food Festival Algiers" class="w-full h-full object-cover">
+  </div>
+  <div class="p-6 text-white flex flex-col justify-between flex-grow">
+    <div>
+      <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">FOOD</span>
+      <h3 class="text-xl font-bold mb-2">Algiers Street Food Festival</h3>
+      <p class="text-sm mb-4">Experience flavors from around the world in the heart of Algiers! This festival offers not only traditional Algerian dishes but also international street food, refreshing drinks, and fun cultural activities for all ages.</p>
+    </div>
+    <div>
+      <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> Juin 19–23, 2025</div>
+      <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Parc ECOLOH Algiers, Algeria</div>
+      <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+    </div>
+  </div>
+</div>
+ <!-- Event Card 1 - Summer School -->
+<div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+  <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+    <img src="https://i.postimg.cc/MpSC33vN/file-00000000703061fba7be6ec82e9096e7.png" alt="Summer School Tlemcen" class="w-full h-full object-cover">
+  </div>
+  <div class="p-6 text-white flex flex-col justify-between flex-grow">
+    <div>
+      <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">Programme Enfants</span>
+      <h3 class="text-xl font-bold mb-2">🌟 Summer School 2025 – Tlemcen 🌟</h3>
+      <p class="text-sm mb-4">Kids 5–14 enjoy foreign languages, fun workshops, and exciting trips. Sunday–Thursday, 9 AM–4 PM. Inclusive lunch. Limited spots!</p>
+    </div>
+    <div>
+      <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> July 1, 2025 – August 15, 2025</div>
+      <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Bel Horizon, Tlemcen</div>
+      <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+    </div>
+  </div>
+</div>
+
+<!-- Event Card 2 - Photography Retreat -->
+<div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+  <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+    <img src="https://i.postimg.cc/Sx2s5QGf/1000209626.jpg" alt="Photography Retreat" class="w-full h-full object-cover">
+  </div>
+  <div class="p-6 text-white flex flex-col justify-between flex-grow">
+    <div>
+      <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">Adventure</span>
+      <h3 class="text-xl font-bold mb-2">⛰️ Time Adventure – Mont Lalla Khedidja</h3>
+      <p class="text-sm mb-4">A challenging 14 km hike to the summit of Mount Lalla Khedidja, which stands at 2,308 meters above sea level.
+       Price: 3,500 DZD
+      </p>
+    </div>
+    <div>
+      <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> January 24 – 25, 2026 </div>
+      <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Mount Lalla Khedidja, Kabylie Region (near Annaba), Algeria</div>
+      <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+    </div>
+  </div>
+</div>
+
+<!-- Event Card 3 - Taste of Algeria -->
+<div class="bg-gradient-to-r from-[var(--primary)] to-[var(--highlight)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col">
+  <div class="h-48 md:h-56 lg:h-52 overflow-hidden">
+    <img src="https://i.postimg.cc/VLWJVTKb/Restaurant20-Corso20-Fredj.webp" alt="Taste of Algeria" class="w-full h-full object-cover">
+  </div>
+  <div class="p-6 text-white flex flex-col justify-between flex-grow">
+    <div>
+      <span class="bg-white text-[var(--primary)] px-3 py-1 rounded-full text-xs font-bold inline-block mb-3">Food & Culture</span>
+      <h3 class="text-xl font-bold mb-2">🍲 Taste of Algeria – Culinary Tour</h3>
+      <p class="text-sm mb-4">A 3-day food trip across Oran’s markets, kitchens, and sea-side cafés. Street food, masterclasses & storytelling included.</p>
+    </div>
+    <div>
+      <div class="flex items-center text-sm mb-2"><i class="fas fa-calendar-alt mr-2 text-white"></i> Sept 19–21, 2025</div>
+      <div class="flex items-center text-sm mb-4"><i class="fas fa-map-marker-alt mr-2 text-white"></i> Oran, Algeria</div>
+      <button class="bg-white text-[var(--primary)] hover:bg-gray-100 px-4 py-2 rounded-md font-medium transition duration-300">Learn More</button>
+    </div>
+  </div>
+</div>
+  
+  
+               <!-- Special Offer 2 -->
+             <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200">
+  <div class="p-6 h-full flex flex-col">
+    <div class="mb-4">
+      <span class="bg-[#FEEBCB] text-[#D97706] px-3 py-1 rounded-full text-xs font-bold inline-block">SPECIAL OFFER</span>
+    </div>
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Sahara Adventure Deal</h3>
+    <p class="text-gray-600 mb-6">Book a guided desert tour and get a free overnight stay under the stars in a luxury tent.</p>
+    <div class="flex items-center mb-6">
+      <i class="fas fa-calendar-alt mr-2 text-gray-500"></i>
+      <span class="text-gray-700">Valid until January 10, 2026</span>
+    </div>
+    <div class="mt-auto">
+      <div class="flex justify-between items-center mb-3">
+        <span class="text-2xl font-bold text-[var(--primary)]">100000 DZ</span>
+        <span class="text-sm text-gray-500 line-through">108000 DZ</span>
+      </div>
+      <button class="w-full bg-[var(--primary)] hover:bg-[var(--highlight)] text-white py-2 rounded-md font-medium transition duration-300">
+        Book Now
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Special Offer 3 -->
+
+<div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200">
+  <div class="p-6 h-full flex flex-col">
+    <div class="mb-4">
+      <span class="bg-[#FEEBCB] text-[#D97706] px-3 py-1 rounded-full text-xs font-bold inline-block">SPECIAL OFFER</span>
+    </div>
+    <h3 class="text-xl font-bold text-gray-900 mb-4">City & Culture Combo</h3>
+    <p class="text-gray-600 mb-6">Get a free museum pass and city tour when booking 3+ nights in Algiers.</p>
+    <div class="flex items-center mb-6">
+      <i class="fas fa-calendar-alt mr-2 text-gray-500"></i>
+      <span class="text-gray-700">Valid until March 31, 2026</span>
+    </div>
+    <div class="mt-auto">
+      <div class="flex justify-between items-center mb-3">
+        <span class="text-2xl font-bold text-[var(--primary)]">70000 DZ</span>
+        <span class="text-sm text-gray-500 line-through">83000 DZ</span>
+      </div>
+      <button class=" w-full bg-[var(--primary)] hover:bg-[var(--highlight)] text-white py-2 rounded-md font-medium transition duration-300">
+        Book Now
+      </button>
+    </div>
+  </div>
+</div>
+   
+<!-- Special Offer 1 -->
+
+ <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="mb-4">
+                            <span class="bg-[#FEEBCB] text-[#D97706] px-3 py-1 rounded-full text-xs font-bold inline-block">SPECIAL OFFER</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Winter Escape Package</h3>
+                        <p class="text-gray-600 mb-6">Enjoy 30% off on all-inclusive stays at our partner resorts along the Mediterranean coast.</p>
+                        <div class="flex items-center mb-6">
+                            <i class="fas fa-calendar-alt mr-2 text-gray-500"></i>
+                            <span class="text-gray-700">Valid until February 12, 2026</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-2xl font-bold text-[var(--primary)]">58000 DZ</span>
+                                <span class="text-sm text-gray-500 line-through">61000 DZ</span>
+                            </div>
+                            <button class="w-full bg-[var(--primary)] hover:bg-[var(--highlight)] text-white py-2 rounded-md font-medium transition duration-300">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+     </section>
+ <!-- Partners Section -->
+<section id="partners" class="py-20 bg-[var(--light)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="title-font text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Trusted Partners</h2>
+      <p class="max-w-2xl mx-auto text-lg text-gray-600">
+        We collaborate with the best travel agencies, hotels, and local businesses across Algeria
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="filter-tab active bg-[var(--primary)] text-white px-4 py-2 rounded-md text-sm font-semibold transition" data-filter="all">All</button>
+      <button class="filter-tab border border-[var(--primary)] text-[var(--primary)] px-4 py-2 rounded-md text-sm font-semibold hover:bg-[var(--primary)] hover:text-white transition" data-filter="hotels">Hotels</button>
+      <button class="filter-tab border border-[var(--primary)] text-[var(--primary)] px-4 py-2 rounded-md text-sm font-semibold hover:bg-[var(--primary)] hover:text-white transition" data-filter="restaurants">Restaurants</button>
+      <button class="filter-tab border border-[var(--primary)] text-[var(--primary)] px-4 py-2 rounded-md text-sm font-semibold hover:bg-[var(--primary)] hover:text-white transition" data-filter="tour-operators">Tour Operators</button>
+      <button class="filter-tab border border-[var(--primary)] text-[var(--primary)] px-4 py-2 rounded-md text-sm font-semibold hover:bg-[var(--primary)] hover:text-white transition" data-filter="crafts">Crafts</button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Partner 1 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-[var(--primary)] transition duration-300 partner-card" data-category="hotels">
+        <div class="h-48 bg-[var(--light)] flex items-center justify-center">
+          <img src="https://i.postimg.cc/ZqkXv7hV/8058fdd5-1964-4085-98a1-f43a1f897c70.png " alt="Hotel pic" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Azure Dunes Hotel</h3>
+          <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">4.5 (121 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">A coastal 5-star retreat combining luxury with Mediterranean charm.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-map-marker-alt mr-2 text-[var(--primary)]"></i>
+            <span>Annaba, Algeria</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 2 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-[var(--primary)] transition duration-300 partner-card" data-category="tour-operators">
+        <div class="h-48 bg-[var(--light)] flex items-center justify-center">
+          <img src="https://i.postimg.cc/6p7yp39C/e7a9069a-878f-4db7-a6af-51b7f7b0055d-1.png" alt="Travel Agency" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Nomad Trails Agency</h3>
+          <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">5.0 (87 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Expert-led tours through Algeria’s most captivating desert landscapes.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-map-marker-alt mr-2 text-[var(--primary)]"></i>
+            <span>Djanet, Algeria</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 3 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-[var(--primary)] transition duration-300 partner-card" data-category="restaurants">
+        <div class="h-48 bg-[var(--light)] flex items-center justify-center">
+          <img src="https://i.postimg.cc/9Fw6XR4d/a321ac07-c885-46bd-9c19-3abdc32ae14b.png" alt="Restaurant Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Cedar Bites</h3>
+          <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">4.0 (73 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Charming eatery offering fusion of Kabyle and Mediterranean flavors.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-map-marker-alt mr-2 text-[var(--primary)]"></i>
+            <span>Béjaïa, Algeria</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 4 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-[var(--primary)] transition duration-300 partner-card" data-category="crafts">
+        <div class="h-48 bg-[var(--light)] flex items-center justify-center">
+          <img src="https://i.postimg.cc/T1gB9Bvk/9b29a230-83a5-4ca3-9799-1e6a1123635a.png" alt="Crafts Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Berber Origins</h3>
+          <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="text-gray-500 text-sm ml-2">5.0 (52 reviews)</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">Authentic crafts, weaving, and silver jewelry rooted in Berber heritage.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-map-marker-alt mr-2 text-[var(--primary)]"></i>
+            <span>Tizi Ouzou, Algeria</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+   <!-- Join as Partner Section -->
+<section id="join" class="py-20 bg-[var(--light)] text-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+      
+      <!-- Left Content -->
+      <div class="mb-12 lg:mb-0">
+        <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Join Our Network of Partners</h2>
+        <p class="text-lg mb-8 opacity-90">
+          Become part of Algeria's premier tourism platform and connect with travelers from around the world.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-[var(--primary)] mt-1 mr-3"></i>
+            <span>Increase your visibility to international and domestic travelers</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-[var(--primary)] mt-1 mr-3"></i>
+            <span>Access our marketing resources and promotional campaigns</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-[var(--primary)] mt-1 mr-3"></i>
+            <span>Participate in exclusive events and networking opportunities</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-[var(--primary)] mt-1 mr-3"></i>
+            <span>Benefit from our technology platform and booking system</span>
+          </li>
+        </ul>
+        <div class="flex items-center">
+          <i class="fas fa-phone-alt mr-3 text-[var(--primary)]"></i>
+          <span class="font-medium">+213 123 456 789</span>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="bg-white rounded-xl shadow-xl p-8 text-gray-800">
+        <h3 class="text-2xl font-bold mb-6 text-[var(--primary)]">Partner Application Form</h3>
+        <form>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-medium mb-2" for="business-name">Business Name</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="business-name" type="text" placeholder="Enter your business name">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-medium mb-2" for="business-type">Business Type</label>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="business-type">
+              <option value="">Select business type</option>
+              <option value="hotel">Hotel/Accommodation</option>
+              <option value="restaurant">Restaurant/Cafe</option>
+              <option value="tour">Tour Operator/Guide</option>
+              <option value="transport">Transport Service</option>
+              <option value="artisan">Artisan/Craftsperson</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-medium mb-2" for="location">Location</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="location" type="text" placeholder="City/Region">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email</label>
+            <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="email" type="email" placeholder="your@email.com">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-medium mb-2" for="message">Tell us about your business</label>
+            <textarea class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="message" rows="3" placeholder="Brief description of your services"></textarea>
+          </div>
+          <button class="w-full bg-[var(--primary)] hover:bg-[var(--highlight)] text-white py-3 rounded-md font-medium transition duration-300" type="submit">
+            Submit Application
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section id="about" class="py-20 bg-[var(--light)] text-[var(--text)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- عنوان القسم -->
+    <div class="text-center mb-16">
+      <h2 class="title-font text-3xl md:text-4xl font-bold text-[var(--dark)] mb-4">
+        About <span class="text-[var(--primary)]">Algeria In Your Eyes</span>
+      </h2>
+      <p class="max-w-3xl mx-auto text-lg text-[var(--text)]">
+        Our mission is to showcase the beauty and diversity of Algeria through immersive technologies and authentic experiences.
+      </p>
+
+    </div>
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fly {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+  <!-- صورة متحركة -->
+  <div>
+    <img src="https://i.postimg.cc/W3Gzp9DW/Sans-titre-202-20250628115343.png "
+         alt="Animated About Us"
+         class="w-full h-auto rounded-xl shadow-lg animate-fly">
+  </div>
+
+  <!-- نص القصة -->
+  <div>
+    <h3 class="text-2xl font-bold text-[var(--dark)] mb-4">About Us</h3>
+    <p class="mb-6 leading-relaxed">
+      Founded in 2025, <strong>Algeria In Your Eyes</strong> is a next-generation travel platform created to reveal the hidden gems, stunning landscapes, and deep-rooted culture of Algeria through immersive and engaging experiences.
+    </p>
+    <p class="mb-6 leading-relaxed">
+    We combine cutting-edge digital technology with local expertise to offer curated adventures, virtual reality tours, and meaningful cultural encounters — all designed to connect travelers with the true heart of Algeria.
+    </p>
+    <p class="mb-6 leading-relaxed">
+     Our dedicated team of travelers, tech experts, and cultural ambassadors works alongside local communities to promote sustainable tourism and share Algeria’s authentic story with the world.
+    </p>
+  </div>
+</div>
+
+
+        <!-- Vision & Sustainability -->
+        <div class="flex flex-wrap gap-6">
+          <!-- Vision -->
+          <div class="flex items-start gap-3">
+            <div class="bg-[var(--primary)] text-white p-3 rounded-full">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-[var(--dark)]">Vision</h4>
+              <p class="text-sm">To become the leading platform for immersive Algerian tourism experiences</p>
+            </div>
+          </div>
+
+          <!-- Sustainability -->
+          <div class="flex items-start gap-3">
+            <div class="bg-[var(--highlight)] text-white p-3 rounded-full">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-[var(--dark)]">Sustainability</h4>
+              <p class="text-sm">Committed to eco-friendly and community-based tourism</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    
+           <div class="bg-white rounded-xl shadow-md p-8 h-full border border-[var(--primary)]">
+  <!-- Contact Info -->
+  <div class="mb-8">
+    <h3 class="text-xl font-bold text-[var(--dark)] mb-4">Contact Information</h3>
+    <div class="space-y-5">
+      <div class="flex items-start">
+        <div class="bg-[var(--light)] p-3 rounded-full mr-4 flex-shrink-0">
+          <i class="fas fa-map-marker-alt text-[var(--primary)]"></i>
+        </div>
+        <div>
+          <h4 class="font-medium text-[var(--dark)]">Address</h4>
+          <p class="text-[var(--text)]">22 Tourism Street, sba, Algeria</p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <div class="bg-[var(--light)] p-3 rounded-full mr-4 flex-shrink-0">
+          <i class="fas fa-envelope text-[var(--primary)]"></i>
+        </div>
+        <div>
+          <h4 class="font-medium text-[var(--dark)]">Email</h4>
+          <p class="text-[var(--text)]">Algeriainyoureyes@gmail.com</p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <div class="bg-[var(--light)] p-3 rounded-full mr-4 flex-shrink-0">
+          <i class="fas fa-phone-alt text-[var(--primary)]"></i>
+        </div>
+        <div>
+          <h4 class="font-medium text-[var(--dark)]">Phone</h4>
+          <p class="text-[var(--text)]">+213 123 456 789</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <!-- Follow Us -->
+<div>
+  <h3 class="text-xl font-bold text-[var(--dark)] mb-4">Follow Us</h3>
+  <div class="flex space-x-4">
+    <!-- Facebook -->
+    <a href="#" class="group relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-white border border-[var(--primary)] shadow-sm hover:bg-[var(--primary)] transition duration-300">
+      <i class="fab fa-facebook-f text-[var(--primary)] group-hover:text-white text-lg"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="#" class="group relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-white border border-pink-500 shadow-sm hover:bg-pink-500 transition duration-300">
+      <i class="fab fa-instagram text-pink-500 group-hover:text-white text-lg"></i>
+    </a>
+
+   <!-- X (Twitter سابقًا) -->
+<a href="https://x.com/yourpage" target="_blank"
+   class="group relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-white border border-black shadow-sm hover:bg-black transition duration-300">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1200 1227"
+       class="w-5 h-5 text-black group-hover:text-white">
+    <path d="M713.7 569.3L1164.1 0H1060L663.5 491.2 319.1 0H0L475.4 684.2 0 1227h104.1l423-509.3L900.9 1227H1200L713.7 569.3z"/>
+  </svg>
+</a>
+
+    <!-- YouTube -->
+    <a href="#" class="group relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-white border border-red-600 shadow-sm hover:bg-red-600 transition duration-300">
+      <i class="fab fa-youtube text-red-600 group-hover:text-white text-lg"></i>
+    </a>
+  </div>
+</div>
+</div>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-[var(--primary)] text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="title-font text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+                Subscribe to our newsletter for the latest travel experiences, events, and special offers in Algeria
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-900">
+                <button class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition duration-300 whitespace-nowrap">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--dark)] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+                <div class="col-span-2">
+                    <img src="https://i.postimg.cc/ZqkGkzbL/Picsart-25-06-29-11-41-03-482.png" alt="Logo" class="h-8 mb-4">
+                    <p class="text-gray-400 mb-4">
+                        Algeria In Your Eyes is the premier platform for immersive tourism experiences in Algeria, connecting travelers with authentic local experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-x"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Destinations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Experiences</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Travel Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">VR Tours</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Interactive Map</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Algeria In Your Eyes. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- Video Modal -->
+<div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 hidden">
+  <div class="relative w-full max-w-4xl mx-auto bg-black rounded-lg overflow-hidden">
+    <button onclick="closeVideoModal()" class="absolute top-2 right-2 text-white text-2xl z-10 hover:text-red-400">&times;</button>
+    <div class="w-full aspect-video">
+      <iframe id="videoIframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Simple animation for the mobile menu toggle
+    document.querySelector('nav button[aria-expanded]').addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Language selector toggle
+    const languageSelector = document.querySelector('.language-selector');
+    if (languageSelector) {
+        languageSelector.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const dropdown = this.querySelector('.language-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function () {
+            const dropdowns = document.querySelectorAll('.language-dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    const mobileMenuBtn = document.querySelector('nav button[aria-expanded]');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuBtn = document.getElementById('closeMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+        const isClickInsideMenu = mobileMenu.contains(e.target);
+        const isClickOnBtn = mobileMenuBtn.contains(e.target);
+        if (!isClickInsideMenu && !isClickOnBtn) {
+            mobileMenu.classList.add('-translate-x-full');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Video modal functions
+    function openVideoModal(videoUrl) {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoIframe');
+        iframe.src = videoUrl;
+        modal.classList.remove('hidden');
+    }
+
+    function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoIframe');
+        iframe.src = "";
+        modal.classList.add('hidden');
+    }
+
+    // Filter Script with fade effect
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active', 'bg-[var(--primary)]', 'text-white'));
+            tab.classList.add('active', 'bg-[var(--primary)]', 'text-white');
+
+            const filter = tab.getAttribute('data-filter');
+            const cards = document.querySelectorAll('.partner-card, .vr-card');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                card.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => {
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.classList.remove('opacity-0');
+                        }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }, 300);
+            });
+        });
+    });
+function openVideoModalWithComments(videoUrl) {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    iframe.src = videoUrl;
+    modal.classList.remove('hidden');
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    iframe.src = "";
+    modal.classList.add('hidden');
+} 
+
+function submitComment() {
+    const input = document.getElementById('commentInput');
+    const list = document.getElementById('comments');
+    const text = input.value.trim();
+    if (text) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        list.appendChild(li);
+        input.value = '';
+    }
+}
+
+    // Map modal logic
+    function openMapModal() {
+        document.getElementById('mapModal').classList.remove('hidden');
+    }
+    function closeMapModal() {
+        document.getElementById('mapModal').classList.add('hidden');
+    }
+
+    const partnerData = {
+        blida: [
+            { name: 'Ski Lodge Blida', type: 'Hotel', rating: 4.2, comment: 'Great mountain view!' },
+            { name: 'Chréa Tours', type: 'Tour Operator', rating: 4.8, comment: 'Excellent guides.' }
+        ],
+        algiers: [
+            { name: 'Casbah 360 VR', type: 'Culture', rating: 4.6, comment: 'Superb virtual tour.' }
+        ],
+        djanet: [
+            { name: 'Sahara Explore', type: 'Adventure', rating: 4.9, comment: 'Unforgettable desert trek.' }
+        ]
+    };
+
+    document.querySelectorAll('#algeria-map [data-region]').forEach(el => {
+        el.classList.add('hover:fill-[var(--highlight)]', 'cursor-pointer');
+        el.addEventListener('click', () => {
+            loadRegionData(el.dataset.region);
+        });
+    });
+
+    function loadRegionData(region) {
+        const cont = document.getElementById('regionContent');
+        const list = partnerData[region] || [];
+        cont.innerHTML = list.length
+            ? list.map(p => `
+                <div class="bg-[var(--light)] p-4 rounded-lg shadow">
+                    <h4 class="font-bold text-gray-900 mb-1">${p.name} <span class="text-sm text-gray-500">(${p.type})</span></h4>
+                    <p class="text-yellow-500">★ ${p.rating}</p>
+                    <p class="text-gray-600">${p.comment}</p>
+                </div>`).join('')
+            : '<p class="text-gray-600">No data for this region yet.</p>';
+    }
+</script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Nhohhg/algeriainyoureyes" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
